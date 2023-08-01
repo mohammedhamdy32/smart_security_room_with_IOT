@@ -1,0 +1,45 @@
+15:49:02 **** Incremental Build of configuration Debug for project smart_secure_room ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/winavr-20100110/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:13:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:66: warning: unused variable 'light_intensty'
+Finished building: ../main.c
+ 
+Building target: smart_secure_room.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,smart_secure_room.map -mmcu=atmega32 -o "smart_secure_room.elf"  ./ADC.o ./UART.o ./gpio.o ./lcd.o ./main.o ./seven_segment.o   
+Finished building target: smart_secure_room.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S smart_secure_room.elf  >"smart_secure_room.lss"
+Finished building: smart_secure_room.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex smart_secure_room.elf  "smart_secure_room.hex"
+Finished building: smart_secure_room.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 smart_secure_room.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   17182 bytes (52.4% Full)
+(.text + .data + .bootloader)
+
+Data:        282 bytes (13.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:49:03 Build Finished. 0 errors, 3 warnings. (took 942ms)
+
